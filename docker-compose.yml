@@ -3,6 +3,7 @@ services:
     image: wordpress:latest
     container_name: wordpress
     volumes:
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./wp-content:/var/www/html/wp-content
     environment:
       - WORDPRESS_DB_NAME=wordpress

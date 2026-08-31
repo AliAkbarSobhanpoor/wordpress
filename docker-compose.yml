@@ -1,6 +1,8 @@
 services:
   wordpress:
-    image: wordpress:php8.1-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: wordpress
     volumes:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
@@ -14,7 +16,7 @@ services:
     depends_on:
       - db 
     ports:
-      - 8080:80
+      - 8182:80
 
   db:
     image: mariadb:latest
